@@ -9,14 +9,17 @@ class ProductsScreen extends StatefulWidget {
 
 class _ProductsScreenState extends State<ProductsScreen> {
   List? products;
+  List Products=MyMetaData.metaData.getProducts();
   @override
   void initState() {
+    print('initState');
     // TODO: implement initState
-    products=MyMetaData.metaData.getProducts();
     super.initState();
   }
   @override
   Widget build(BuildContext context) {
+    print('build');
+
     // TODO: implement build
     return Scaffold(
       body: Column(
@@ -48,7 +51,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
         Expanded(
           flex: 2
             ,child: ListView.builder(
-          itemCount: MyMetaData.metaData.getProducts().length,
+          itemCount: Products.length,
           itemBuilder: (context, index) {
             return  Container(
               margin: EdgeInsets.all(5),
@@ -58,16 +61,18 @@ class _ProductsScreenState extends State<ProductsScreen> {
                 bottomRight: Radius.circular(20))
               ),
               child: ListTile(
-                  leading: CircleAvatar(child: MyMetaData.metaData.getProducts()[index].icon,),
-                  title: Text('${MyMetaData.metaData.getProducts()[index].name} \n'
-                      '${MyMetaData.metaData.getProducts()[index].getPrice()}',textAlign: TextAlign.center,),
-                  trailing: IconButton(icon: Icon(Icons.favorite,color:MyMetaData.metaData.getProducts()[index].isFav?
+                  leading: CircleAvatar(child: Products[index].icon,),
+                  title: Text('${Products[index].name}'
+                    ,textAlign: TextAlign.center,),
+                  subtitle: Text('${Products[index].getPrice()}'
+                      ,textAlign: TextAlign.center),
+                  trailing: IconButton(icon:
+                  Icon(Icons.favorite,color:Products[index].isFav?
                   Colors.red:null),
                   onPressed: (){
                     setState(() {
-                      print(MyMetaData.metaData.getProducts()[index].isFav.toString());
-                      MyMetaData.metaData.getProducts()[index].isFav=!(MyMetaData.metaData.getProducts()[index].isFav);
-                      print(MyMetaData.metaData.getProducts()[index].isFav.toString());
+                      Products[index].changeFlag();
+
                     });
 
                   },),

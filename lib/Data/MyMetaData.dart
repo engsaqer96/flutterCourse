@@ -9,8 +9,11 @@ class MyMetaData{
     List<Product> l=[
       Product(name: 'LabTop', price:850,
           imagePath:'assets/images/img1.jpg',icon: Icon(Icons.computer),isFav: true),
-      Product(name: 'Camera', price:600, imagePath:'assets/images/img2.jpg',icon: Icon(Icons.camera_alt)),
-      Product(name: 'Product', price:100, imagePath:'assets/images/img3.jpg',icon: Icon(Icons.production_quantity_limits)),
+      Product(name: 'Camera', price:600, imagePath:'assets/images/img2.jpg',
+          icon: Icon(Icons.camera_alt),isFav:false),
+      Product(name: 'Product', price:100, imagePath:'assets/images/img3.jpg',
+          icon: Icon(Icons.production_quantity_limits),
+      isFav: false),
       Product(name: 'Phone', price:350, imagePath:'assets/images/img4.jpg',
           icon: Icon(Icons.phone_android),
       isFav: true),

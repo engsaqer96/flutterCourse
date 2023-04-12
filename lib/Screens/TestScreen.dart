@@ -31,6 +31,8 @@ class _TestScreenState extends State<TestScreen> {
             backgroundColor: Colors.grey,
             title: Text('Products Stroe'),
             bottom: TabBar(
+              indicatorColor: Colors.orange,
+              indicatorWeight:4,
               tabs: [
                 Tab(child: Text('Products'),icon: Icon(Icons.production_quantity_limits),),
                 Tab(child: Text('Fav'),icon: Icon(Icons.favorite),),
